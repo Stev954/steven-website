@@ -1,0 +1,61 @@
+<app-hero
+  [backgroundUrl]="'/assets/hero.jpg'"
+  title="Design, creativity, strategy, business, <br />and the meaning behind life and work."
+  [subtitleHtml]="'My blog explores'"
+  [reverseOrder]='true'
+
+/>
+<section class="blog-page">
+
+  <div class="container">
+    <h1 class="blog-page__title">{{ section.title }}</h1>
+    <h2 class="blog-page__subtitle">{{ section.popularTitle }}</h2>
+
+    <div class="row g-4">
+      @for (post of popularPosts; track post.title) {
+        <div class="col-md-4">
+          <app-blog-card [post]="post" />
+        </div>
+      }
+    </div>
+
+    <div class="blog-topics">
+      <div class="blog-topics__header">
+        <div>
+          <h2 class="blog-page__subtitle">{{ section.topicsTitle }}</h2>
+        </div>
+        <div class="blog-topics__filters">
+          <span class="blog-topics__label">Filter by</span>
+          <div class="blog-topics__select">
+            <select [value]="selectedFilter" (change)="selectFilter($any($event.target).value)">
+              @for (filter of topicFilters; track filter.value) {
+                <option [value]="filter.value">{{ filter.label }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-topics__chips">
+        @for (filter of typeFilters; track filter.value) {
+          <button
+            class="blog-topics__chip"
+            type="button"
+            [class.is-active]="filter.value === selectedType"
+            (click)="selectType(filter.value)"
+          >
+            {{ filter.label }}
+          </button>
+        }
+      </div>
+
+      <div class="row g-4">
+        @for (post of filteredTopics; track post.title) {
+          <div class="col-md-4">
+            <app-blog-card [post]="post" />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,138 @@
+.pricing-page {
+  padding: 120px 0 100px;
+}
+
+.pricing-hero {
+  max-width: 640px;
+  margin-bottom: 72px;
+}
+
+.pricing-hero h1 {
+  color: var(--color-title);
+  font-size: clamp(2.6rem, 4.8vw, 3.6rem);
+  line-height: 1.15;
+  margin: 0 0 24px;
+  font-weight: 700;
+}
+
+.pricing-intro p {
+  margin: 0 0 16px;
+  color: var(--color-text);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.pricing-cards {
+  margin-bottom: 40px;
+}
+
+.pricing-card {
+  background: #b6b6b5;
+  border: 1px solid #e0ded8;
+  padding: 20px 18px 22px;
+  min-height: 100%;
+  color: #1b1b1b;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.pricing-card__summary,
+.pricing-card__note {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: #2a2a2a;
+}
+
+.pricing-card__note {
+  color: #4b4b4b;
+}
+
+.pricing-card__price {
+  margin: 18px 0 16px;
+}
+
+.pricing-card__price-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: #6a6a6a;
+  margin-bottom: 6px;
+}
+
+.pricing-card__price-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pricing-card__price-note {
+  font-size: 0.72rem;
+  color: #6a6a6a;
+}
+
+.pricing-card__includes-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: #6a6a6a;
+  margin-bottom: 8px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.pricing-card li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 8px;
+}
+
+.pricing-card li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #6a6a6a;
+}
+
+.pricing-footer {
+  text-align: center;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  margin: 40px 0 0;
+}
+
+.pricing-footer__link {
+  color: #ff6b6b;
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .pricing-page {
+    padding: 100px 0 80px;
+  }
+}
+
+@media (max-width: 575px) {
+  .pricing-hero {
+    margin-bottom: 48px;
+  }
+
+  .pricing-card {
+    padding: 18px 16px;
+  }
+}

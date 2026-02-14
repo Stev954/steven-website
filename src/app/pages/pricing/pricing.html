@@ -1,0 +1,48 @@
+<section class="pricing-page">
+  <div class="container">
+    <header class="pricing-hero">
+      <h1>{{ content.title }}</h1>
+      <div class="pricing-intro">
+        @for (line of content.intro; track line) {
+          <p>{{ line }}</p>
+        }
+      </div>
+    </header>
+
+    <div class="row g-4 pricing-cards">
+      @for (card of content.cards; track card.name) {
+        <div class="col-12 col-md-6 col-xl-3">
+          <article class="pricing-card">
+            <h3 class="pricing-card__title">{{ card.name }}</h3>
+            <p class="pricing-card__summary">{{ card.summary }}</p>
+            <p class="pricing-card__note">{{ card.note }}</p>
+
+            <div class="pricing-card__price">
+              <span class="pricing-card__price-label">{{ card.priceLabel }}</span>
+              <div class="pricing-card__price-value">{{ card.price }}</div>
+              @if (card.priceNote) {
+                <div class="pricing-card__price-note">{{ card.priceNote }}</div>
+              }
+            </div>
+
+            <div class="pricing-card__includes">
+              <span class="pricing-card__includes-label">Includes</span>
+              <ul>
+                @for (item of card.includes; track item) {
+                  <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+
+    <p class="pricing-footer">
+      {{ content.footer.lead }}
+      <span class="pricing-footer__link">{{ content.footer.action }}</span>
+      {{ content.footer.tail }}
+    </p>
+  </div>
+</section>
+<p>pricing works!</p>

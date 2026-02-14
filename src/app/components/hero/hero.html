@@ -1,0 +1,38 @@
+<section
+  #heroSection
+  class="hero hero--detail"
+  [class.hero--reverse]="reverseOrder"
+  [style.backgroundImage]="backgroundUrl ? 'url(' + backgroundUrl + ')' : null"
+>
+  <div class="hero-content">
+    @if (reverseOrder) {
+      @if (subtitleHtml) {
+        <p class="subtitle" [innerHTML]="subtitleHtml"></p>
+      } @else if (subtitle) {
+        <p class="subtitle">{{ subtitle }}</p>
+      }
+      @if (title) {
+        <h1 [innerHTML]="title"></h1>
+      } @else {
+        <h1>WE'RE ALL<br />SEARCHING<br />FOR MEANING</h1>
+      }
+    } @else {
+      @if (title) {
+        <h1 [innerHTML]="title"></h1>
+      } @else {
+        <h1>WE'RE ALL<br />SEARCHING<br />FOR MEANING</h1>
+      }
+      @if (subtitleHtml) {
+        <p class="subtitle" [innerHTML]="subtitleHtml"></p>
+      } @else if (subtitle) {
+        <p class="subtitle">{{ subtitle }}</p>
+      } @else {
+        <p class="subtitle">
+          I design identities rooted in emotion, clarity, and intention.<br />
+          Because people don't connect with graphics.<br />
+          They connect with meaning.
+        </p>
+      }
+    }
+  </div>
+</section>

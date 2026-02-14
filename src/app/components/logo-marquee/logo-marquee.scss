@@ -1,0 +1,56 @@
+.logo-band {
+ 
+  color: var(--color-title);
+  padding: 28px 0 24px;
+}
+
+.logo-track {
+    background: white;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.logo-row {
+  display: inline-flex;
+  align-items: center;
+  // gap: 56px;
+  // padding: 0 28px;
+  animation: logo-scroll 18s linear infinite reverse;
+
+}
+
+.logo-row img {
+  height: 140px;
+  width: auto;
+  
+}
+
+.logo-divider {
+  height: 1px;
+  background: var(--color-border);
+  opacity: 1;
+  margin: 20px 72px 0;
+}
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .logo-row {
+    gap: 32px;
+  }
+
+  .logo-row img {
+    height: 24px;
+  }
+
+  .logo-divider {
+    margin: 16px 32px 0;
+  }
+}

@@ -1,0 +1,28 @@
+<section id="work" class="work-section" aria-label="Work That Works">
+  <div class="container">
+    <div class="row align-items-start gy-4">
+      <div class="col-lg-4">
+        <h2 class="work-title">{{ section.title }}</h2>
+        <p class="work-subtitle">{{ section.subtitle }}</p>
+      </div>
+      <div class="col-lg-8">
+        <div class="row g-4">
+          @for (item of workItems; track item.title) {
+            <div class="col-md-12">
+              <article class="work-card">
+                <div class="work-media">
+                  <img [src]="item.image" [alt]="item.title" loading="lazy" />
+                  <span class="work-label">{{ 'View' }}</span>
+                </div>
+                <div class="work-meta">
+                  <span class="work-client">{{ item.client }}</span>
+                  <span class="work-card-title">{{ item.title }}</span>
+                </div>
+              </article>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

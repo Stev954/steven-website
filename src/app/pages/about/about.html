@@ -1,0 +1,37 @@
+<section class="about-page">
+  <div class="container about-page__container">
+    @for (block of blocks; track block.title) {
+      <article class="about-block">
+        <h2>{{ block.title }}</h2>
+        @for (paragraph of block.paragraphs; track paragraph) {
+          @if (paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        }
+        @if (block.list?.length) {
+          <ul>
+            @for (item of block.list; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        @if (block.secondaryTitle) {
+          <p class="about-block__lead" [innerHTML]="block.secondaryTitle"></p>
+        }
+        @if (block.secondaryList?.length) {
+          <ul>
+            @for (item of block.secondaryList; track item) {
+              <li >{{ item }}</li>
+            }
+          </ul>
+        }
+        @if (block.paragraphsAfter?.length) {
+          @for (paragraph of block.paragraphsAfter; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+        }
+      </article>
+      <hr />
+    }
+  </div>
+</section>

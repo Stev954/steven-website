@@ -1,0 +1,162 @@
+.blog-detail {
+  background: var(--color-bg);
+  color: var(--color-text);
+  
+}
+
+.blog-detail h1 {
+  color: var(--color-title);
+  font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+  margin: 0 0 16px;
+  
+}
+
+.blog-detail__meta {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.blog-detail__hero {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 24px;
+  border-radius: 6px;
+}
+
+.blog-detail__content p {
+  margin: 0 0 10px;
+
+}
+
+.blog-detail__content h2 {
+  margin: 28px 0 12px;
+  color: var(--color-title);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+}
+
+.blog-detail__share {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 16px;
+}
+
+.blog-detail__share-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.share-icon {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-title);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.share-icon i {
+  font-size: 18px;
+}
+
+.share-icon:hover {
+  border-color: var(--color-title);
+}
+
+.blog-detail__reply {
+  border-top: 1px solid var(--color-border);
+  margin-top: 36px;
+  padding-top: 24px;
+}
+
+.blog-detail__reply h2 {
+  color: var(--color-title);
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.reply-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.reply-form__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.reply-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-title);
+}
+
+.reply-form__field input,
+.reply-form__field textarea {
+  background: #f7f7f7;
+  border: 1px solid #d9d9d9;
+  padding: 10px 12px;
+  border-radius: 4px;
+  color: #111;
+  font-size: 14px;
+}
+
+.reply-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.reply-form__submit {
+  align-self: flex-start;
+  background: #1e1e1e;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.reply-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reply-form__message {
+  margin: 8px 0 0;
+  color: var(--color-text);
+  font-size: 14px;
+}
+:host ::ng-deep .blog-detail__content u{
+  text-underline-offset: 3px;
+}
+@media (max-width: 991px) {
+  .blog-detail__share {
+    position: static;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 24px;
+  }
+}

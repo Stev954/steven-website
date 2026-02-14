@@ -1,0 +1,91 @@
+@if (post; as current) {
+  <app-hero
+    [backgroundUrl]="current.heroImage ?? current.image"
+    [title]="current.title"
+    [subtitle]="current.description"
+  />
+
+  <section class="blog-detail">
+    <div class="container">
+      <div class="row g-5">
+        <aside class="col-lg-2">
+          <div class="blog-detail__share">
+            <span class="blog-detail__share-label">Share</span>
+            <button class="share-icon" type="button" (click)="share('facebook')" aria-label="Share on Facebook">
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </button>
+            <button class="share-icon" type="button" (click)="share('linkedin')" aria-label="Share on LinkedIn">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </button>
+            <button class="share-icon" type="button" (click)="share('twitter')" aria-label="Share on Twitter">
+              <i class="bi bi-twitter-x" aria-hidden="true"></i>
+            </button>
+            <button class="share-icon" type="button" (click)="copyLink()" aria-label="Copy link">
+              <i class="bi bi-link-45deg" aria-hidden="true"></i>
+            </button>
+          </div>
+        </aside>
+        <div class="col-lg-8">
+          <div class="blog-detail__meta">
+            @if (current.author) {
+              <span>By {{ current.author }}</span>
+            }
+            @if (current.published) {
+              <span>{{ current.published }}</span>
+            }
+          </div>
+          <div class="blog-detail__content">
+            @if (current.blocks?.length) {
+              @for (block of current.blocks; track block.title) {
+                
+                  <h2 [innerHtml]="block.title"> </h2>
+                
+                @for (line of block.paragraphs; track line) {
+                  <p class="mb-2 " [innerHtml]="line"></p>
+                }
+                
+                
+              }
+            } @else if (current.content?.length) {
+              @for (paragraph of current.content; track paragraph) {
+                <p>{{ paragraph }}</p>
+              }
+            } @else {
+              <p>{{ current.description }}</p>
+            }
+          </div>
+          <div class="blog-detail__reply">
+            <h2>Leave a Reply</h2>
+            <p>Your email address will not be published. Required fields are marked *</p>
+            <form class="reply-form" [formGroup]="replyForm" (ngSubmit)="submitReply()">
+              <div class="reply-form__row">
+                <label class="reply-form__field">
+                  <span>Name *</span>
+                  <input type="text" formControlName="name" />
+                </label>
+                <label class="reply-form__field">
+                  <span>Email *</span>
+                  <input type="email" formControlName="email" />
+                </label>
+              </div>
+              <label class="reply-form__field">
+                <span>Comment *</span>
+                <textarea rows="5" formControlName="comment"></textarea>
+              </label>
+              <label class="reply-form__check">
+                <input type="checkbox" formControlName="save" />
+                <span>Save my name, email, and website in this browser for the next time I comment.</span>
+              </label>
+              <button class="reply-form__submit" type="submit" [disabled]="replyForm.invalid || isSubmitting">
+                {{ isSubmitting ? 'Sending...' : 'Post Comment' }}
+              </button>
+              @if (submitMessage) {
+                <p class="reply-form__message">{{ submitMessage }}</p>
+              }
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}

@@ -1,0 +1,10 @@
+<section class="logo-band" aria-label="Trusted by leading teams">
+  <div class="logo-track">
+    <div class="logo-row">
+      @for (logo of displayLogos; track logo.src) {
+        <img [src]="logo.src" [alt]="logo.alt" loading="lazy" />
+      }
+    </div>
+  </div>
+  <div class="logo-divider" aria-hidden="true"></div>
+</section>
